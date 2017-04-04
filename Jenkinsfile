@@ -1,8 +1,6 @@
 pipeline {
     agent Jenkins-Win-Slave
-    def posh(cmd) {
-                    bat 'powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& ' + cmd + '"'
-                   }  
+     
     stages {
         stage('Build') {
             steps {
@@ -17,9 +15,12 @@ pipeline {
         }
           stage('Run myscript') {
             steps {
-       
+                script {
+       def posh(cmd) {
+                    bat 'powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& ' + cmd + '"'
+                   } 
     posh './Test.ps1'
-
+                }
             }
         }
         
