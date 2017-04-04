@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent Jenkins-Win-Slave
     def posh(cmd) {
                     bat 'powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& ' + cmd + '"'
                    }  
