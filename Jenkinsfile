@@ -15,12 +15,9 @@ pipeline {
         }
           stage('Run myscript') {
             steps {
-                script {
-       def posh(cmd) {
-                    bat 'powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& ' + cmd + '"'
-                   } 
+                
     posh './Test.ps1'
-                }
+                
             }
         }
         
@@ -31,3 +28,6 @@ pipeline {
         }
     }
 }
+def posh(cmd) {
+                    bat 'powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "& ' + cmd + '"'
+                   } 
