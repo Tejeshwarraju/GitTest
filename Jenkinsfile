@@ -1,5 +1,5 @@
 pipeline {
-    agent Jenkins-Win-Slave
+    agent {Jenkins-Win-Slave}
      
     stages {
         stage('Build') {
